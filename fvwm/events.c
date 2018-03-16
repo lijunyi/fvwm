@@ -3168,6 +3168,10 @@ void HandleMapRequestKeepRaised(
 					(char *)initial_map_command, 0, fw);
 			}
 			MyXUngrabServer(dpy);
+
+			rectangle	 g;
+			get_unshaded_geometry(fw, &g);
+			fw->m = FindScreenOfXY(g.x, g.y);
 			break;
 
 		case IconicState:
